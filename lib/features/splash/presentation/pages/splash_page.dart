@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:spotify_app/core/theme/app_vectors.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -7,9 +9,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          child: Text('Welcome At Splash Page '),
-        ),
+        child: SvgPicture.asset(AppVectors.appLogo),
       )
     );
   }
