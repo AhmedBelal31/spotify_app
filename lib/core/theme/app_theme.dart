@@ -7,6 +7,7 @@ class AppTheme {
     primaryColor: AppColors.primaryColor,
     colorScheme: const ColorScheme.light(primary: Colors.white),
     brightness: Brightness.light,
+    fontFamily: 'Satoshi',
     iconTheme: const IconThemeData(color: AppColors.primaryColor),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -21,6 +22,7 @@ class AppTheme {
     primaryColor: AppColors.primaryColor,
     colorScheme: const ColorScheme.dark(primary: Colors.black),
     brightness: Brightness.dark,
+    fontFamily: 'Satoshi',
     iconTheme: const IconThemeData(color: AppColors.primaryColor),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
