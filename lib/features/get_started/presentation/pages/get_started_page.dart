@@ -46,9 +46,12 @@ class GetStartedPage extends StatelessWidget {
               ],
             ),
           ),
-          // Container(
-          //   color: Colors.black.withOpacity(0.15),
-          // ),
+          IgnorePointer(
+            ignoring: true,
+            child: Container(
+              color: Colors.black.withOpacity(0.15),
+            ),
+          ),
         ],
       ),
     );
