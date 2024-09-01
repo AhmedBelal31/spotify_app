@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/app_text_styles.dart';
+
 class AppButton extends StatelessWidget {
   final void Function()? onPressed;
   final String text;
@@ -23,10 +25,7 @@ class AppButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-        style: const TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.bold,
-        ),
+        style: TextStyles.font22Bold,
       ),
     );
   }

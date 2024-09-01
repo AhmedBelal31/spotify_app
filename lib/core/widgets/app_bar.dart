@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify_app/core/extensions/is_dark_mode.dart';
+import 'package:spotify_app/core/theme/app_vectors.dart';
+
+import '../theme/app_text_styles.dart';
 
 class BasicAppBar extends StatelessWidget {
-  const BasicAppBar({super.key});
+  final bool withLogo;
+  final String text;
+
+  const BasicAppBar({
+    super.key,
+    this.withLogo = false,
+    this.text = '',
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +26,8 @@ class BasicAppBar extends StatelessWidget {
           Navigator.pop(context);
         },
         icon: Container(
-          width: 50,
-          height: 50,
+          width: 35,
+          height: 35,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: context.isDarkMode
@@ -30,6 +41,13 @@ class BasicAppBar extends StatelessWidget {
           ),
         ),
       ),
+      title: withLogo
+          ? SvgPicture.asset(AppVectors.appLogo, width: 108)
+          : Text(
+              text,
+              style: TextStyles.font16Bold,
+            ),
+      centerTitle: true,
     );
   }
 }

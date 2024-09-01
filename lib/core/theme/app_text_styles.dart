@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'app_colors.dart';
+
 abstract class TextStyles {
-  static const TextStyle font30Bold = TextStyle(
+  static const TextStyle font26Bold = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: 30,
+    fontSize: 26,
   );
 
   static const TextStyle font22Bold = TextStyle(
@@ -26,6 +28,7 @@ abstract class TextStyles {
   static const TextStyle font19Medium = TextStyle(
     fontWeight: FontWeight.w500, // Medium weight
     fontSize: 19,
+    // color: AppColors.darkGreyColor
   );
 
   static const TextStyle font17Regular = TextStyle(
