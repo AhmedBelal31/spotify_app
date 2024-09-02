@@ -12,6 +12,7 @@ class OrDivider extends StatelessWidget {
       children: [
         Expanded(
           child: Container(
+            margin:  const EdgeInsets.only(top: 5),
             height: 1,
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -20,14 +21,14 @@ class OrDivider extends StatelessWidget {
                   Colors.grey[500]!,
                   Colors.grey[200]!,
                 ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
+                begin: Alignment.centerRight,
+                end: Alignment.centerLeft,
               ),
             ),
           ),
         ),
          Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Text(
               'Or',
               style: TextStyles.font15Regular.copyWith(
@@ -37,6 +38,7 @@ class OrDivider extends StatelessWidget {
         ),
         Expanded(
           child: Container(
+            margin:  const EdgeInsets.only(top: 5),
             height: 1,
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -47,8 +49,8 @@ class OrDivider extends StatelessWidget {
                   Colors.grey[500]!,
                   Colors.grey[200]!,
                 ],
-                begin: Alignment.centerRight,
-                end: Alignment.centerLeft,
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
               ),
             ),
           ),

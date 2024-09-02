@@ -36,7 +36,9 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
       decoration: InputDecoration(
         hintText: widget.hintText,
         hintStyle: TextStyles.font16Medium.copyWith(
-          color: AppColors.greyColor,
+          color: context.isDarkMode
+              ? AppColors.textFieldTextDarkColor
+              : AppColors.textFieldTextLightColor,
         ),
         suffixIcon: widget.isThereASuffix == false
             ? const SizedBox()
@@ -49,13 +51,17 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
                     });
                   },
                   icon: isVisible
-                      ? const Icon(
+                      ? Icon(
                           Icons.visibility,
-                          color: AppColors.greyColor,
+                          color: context.isDarkMode
+                              ? const Color(0xFF5B5B5B)
+                              : const Color(0xff8D8D8D),
                         )
-                      : const Icon(
+                      :  Icon(
                           Icons.visibility_off,
-                          color: AppColors.greyColor,
+                          color: context.isDarkMode
+                              ? const Color(0xFF5B5B5B)
+                              : const Color(0xff8D8D8D),
                         ),
                 ),
               ),
