@@ -4,6 +4,7 @@ import 'package:spotify_app/core/extensions/is_dark_mode.dart';
 import 'package:spotify_app/core/theme/app_colors.dart';
 import 'package:spotify_app/core/theme/app_images.dart';
 import 'package:spotify_app/core/widgets/app_button.dart';
+import '../../../../core/routing/routes.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../../../../core/theme/app_vectors.dart';
 import '../../../../core/widgets/app_bar.dart';
@@ -68,7 +69,9 @@ class SignInAndSignUpPage extends StatelessWidget {
                     children: [
                       Expanded(
                         child: AppButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushNamed(Routes.signUpPage);
+                          },
                           text: 'Register',
                         ),
                       ),
