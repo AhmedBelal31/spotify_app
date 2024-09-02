@@ -75,19 +75,26 @@ class SignInAndSignUpPage extends StatelessWidget {
                           text: 'Register',
                         ),
                       ),
+                      const SizedBox(width: 20),
                       Expanded(
                         child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Sign in',
-                            style: TextStyles.font19Medium.copyWith(
-                              color: context.isDarkMode
-                                  ? Colors.white
-                                  : Colors.black,
+                          onPressed: () {
+                            Navigator.of(context).pushNamed(Routes.signInPage);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 20),
+                            child: Text(
+                              'Sign in',
+                              style: TextStyles.font19Medium.copyWith(
+                                color: context.isDarkMode
+                                    ? Colors.white
+                                    : Colors.black,
+                              ),
                             ),
                           ),
                         ),
                       ),
+                      const SizedBox(width: 34),
                     ],
                   ),
                 ),
