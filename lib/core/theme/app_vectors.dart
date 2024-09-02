@@ -7,4 +7,7 @@ class AppVectors {
   static String signInAndSignUpBottomPattern = "${basePath}signIn_and_signUp_bottom_pattern.svg";
   static String signInAndSignUpTopPattern = "${basePath}signIn_and_signUp_top_pattern.svg";
   static String backArrow = "${basePath}back_arrow.svg";
+  static String hideIcon = "${basePath}hide_icon.svg";
+  static String appleIcon = "${basePath}apple_icon.svg";
+  static String googleIcon = "${basePath}google_icon.svg";
 }
