@@ -1,16 +1,13 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:spotify_app/core/extensions/is_dark_mode.dart';
-import '../../../../core/routing/routes.dart';
-import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
-import '../../../../core/theme/app_vectors.dart';
 import '../../../../core/widgets/app_bar.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
+import '../widgets/sign_in_with_social_media.dart';
+import '../widgets/sign_in_widgets/not_a_member_register.dart';
 import '../widgets/sign_up_widgets/need_support.dart';
-import '../widgets/sign_up_widgets/or_divider.dart';
+import '../widgets/or_divider.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -52,17 +49,7 @@ class SignInPage extends StatelessWidget {
               const SizedBox(height: 8),
               Align(
                 alignment: Alignment.centerLeft,
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Recovery Password',
-                    style: TextStyles.font13Bold.copyWith(
-                      color: context.isDarkMode
-                          ? const Color(0xffAEAEAE)
-                          : const Color(0xff383838),
-                    ),
-                  ),
-                ),
+                child: buildRecoveryButton(context),
               ),
               const SizedBox(height: 20),
               AppButton(
@@ -72,53 +59,30 @@ class SignInPage extends StatelessWidget {
               const SizedBox(height: 33),
               const OrDivider(),
               const SizedBox(height: 44),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                      onTap: () {
-                        ///Create Logic Here
-                      },
-                      child: SvgPicture.asset(AppVectors.googleIcon)),
-                  const SizedBox(width: 60),
-                  GestureDetector(
-                    onTap: () {
-                      ///Create Logic Here
-                    },
-                    child: SvgPicture.asset(
-                      AppVectors.appleIcon,
-                      colorFilter: ColorFilter.mode(
-                        context.isDarkMode ? Colors.white : Colors.black,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              const SignInWithSocialMedia(),
               const SizedBox(height: 30),
-              RichText(
-                text: TextSpan(
-                  text: 'Not A Member? ',
-                  style: TextStyles.font15Regular.copyWith(
-                    color: context.isDarkMode ? Colors.white : Colors.black,
-                  ),
-                  children: [
-                    TextSpan(
-                        text: 'Register Now',
-                        style: TextStyles.font16Medium.copyWith(
-                          color: AppColors.primaryColor,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.of(context).pushNamed(Routes.signUpPage);
-                          })
-                  ],
-                ),
-              ),
+              const NotAMemberRegister(),
             ],
           ),
         ),
       ),
     );
   }
+
+  TextButton buildRecoveryButton(BuildContext context) {
+    return TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Recovery Password',
+                  style: TextStyles.font13Bold.copyWith(
+                    color: context.isDarkMode
+                        ? const Color(0xffAEAEAE)
+                        : const Color(0xff383838),
+                  ),
+                ),
+              );
+  }
 }
+
+
+
