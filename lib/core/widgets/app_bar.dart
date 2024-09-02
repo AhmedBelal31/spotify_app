@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify_app/core/extensions/is_dark_mode.dart';
 import 'package:spotify_app/core/theme/app_vectors.dart';
-
 import '../theme/app_text_styles.dart';
 
-class BasicAppBar extends StatelessWidget {
+class BasicAppBar extends StatelessWidget implements PreferredSizeWidget{
   final bool withLogo;
   final String text;
 
@@ -50,4 +49,8 @@ class BasicAppBar extends StatelessWidget {
       centerTitle: true,
     );
   }
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

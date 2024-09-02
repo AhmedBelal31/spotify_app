@@ -59,18 +59,27 @@ class SignUpPage extends StatelessWidget {
                 text: 'Create Account',
               ),
               const SizedBox(height: 33),
-              OrDivider(),
+              const OrDivider(),
               const SizedBox(height: 44),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(AppVectors.googleIcon),
+                  GestureDetector(
+                      onTap: () {
+                        ///Create Logic Here
+                      },
+                      child: SvgPicture.asset(AppVectors.googleIcon)),
                   const SizedBox(width: 60),
-                  SvgPicture.asset(
-                    AppVectors.appleIcon,
-                    colorFilter: ColorFilter.mode(
-                      context.isDarkMode ? Colors.white : Colors.black,
-                      BlendMode.srcIn,
+                  GestureDetector(
+                    onTap: () {
+                      ///Create Logic Here
+                    },
+                    child: SvgPicture.asset(
+                      AppVectors.appleIcon,
+                      colorFilter: ColorFilter.mode(
+                        context.isDarkMode ? Colors.white : Colors.black,
+                        BlendMode.srcIn,
+                      ),
                     ),
                   ),
                 ],

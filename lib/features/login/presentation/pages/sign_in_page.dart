@@ -57,7 +57,9 @@ class SignInPage extends StatelessWidget {
                   child: Text(
                     'Recovery Password',
                     style: TextStyles.font13Bold.copyWith(
-                      color: context.isDarkMode ? const Color(0xffAEAEAE): const Color(0xff383838),
+                      color: context.isDarkMode
+                          ? const Color(0xffAEAEAE)
+                          : const Color(0xff383838),
                     ),
                   ),
                 ),
@@ -73,13 +75,22 @@ class SignInPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(AppVectors.googleIcon),
+                  GestureDetector(
+                      onTap: () {
+                        ///Create Logic Here
+                      },
+                      child: SvgPicture.asset(AppVectors.googleIcon)),
                   const SizedBox(width: 60),
-                  SvgPicture.asset(
-                    AppVectors.appleIcon,
-                    colorFilter: ColorFilter.mode(
-                      context.isDarkMode ? Colors.white : Colors.black,
-                      BlendMode.srcIn,
+                  GestureDetector(
+                    onTap: () {
+                      ///Create Logic Here
+                    },
+                    child: SvgPicture.asset(
+                      AppVectors.appleIcon,
+                      colorFilter: ColorFilter.mode(
+                        context.isDarkMode ? Colors.white : Colors.black,
+                        BlendMode.srcIn,
+                      ),
                     ),
                   ),
                 ],

@@ -18,8 +18,6 @@ class ChooseModePage extends StatefulWidget {
 }
 
 class _ChooseModePageState extends State<ChooseModePage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +29,7 @@ class _ChooseModePageState extends State<ChooseModePage> {
               image: DecorationImage(
                 image: AssetImage(AppImages.chooseModeBG),
                 fit: BoxFit.fill,
+
               ),
             ),
             child: Column(
@@ -55,7 +54,6 @@ class _ChooseModePageState extends State<ChooseModePage> {
                                 context
                                     .read<ChooseModeCubit>()
                                     .changeMode(ThemeMode.dark);
-
                               },
                               child: _buildCircleIcon(
                                 context,
@@ -76,7 +74,6 @@ class _ChooseModePageState extends State<ChooseModePage> {
                                 context
                                     .read<ChooseModeCubit>()
                                     .changeMode(ThemeMode.light);
-
                               },
                               child: _buildCircleIcon(
                                 context,
