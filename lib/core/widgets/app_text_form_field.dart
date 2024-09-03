@@ -9,6 +9,7 @@ class AppTextFormField extends StatefulWidget {
   final void Function(String)? onFieldSubmitted;
   final void Function()? suffixOnPressed;
   final bool? isThereASuffix;
+  final TextEditingController? controller;
 
   const AppTextFormField({
     super.key,
@@ -17,6 +18,7 @@ class AppTextFormField extends StatefulWidget {
     this.onFieldSubmitted,
     this.suffixOnPressed,
     this.isThereASuffix = false,
+    this.controller,
   });
 
   @override
@@ -30,6 +32,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
       validator: widget.validator,
+      controller: widget.controller,
       onFieldSubmitted: widget.onFieldSubmitted,
       obscureText: isVisible,
       cursorColor: context.isDarkMode ? Colors.white : Colors.black,
@@ -57,7 +60,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
                               ? const Color(0xFF5B5B5B)
                               : const Color(0xff8D8D8D),
                         )
-                      :  Icon(
+                      : Icon(
                           Icons.visibility_off,
                           color: context.isDarkMode
                               ? const Color(0xFF5B5B5B)
