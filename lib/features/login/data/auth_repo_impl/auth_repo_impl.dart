@@ -1,6 +1,8 @@
 import 'dart:developer';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:spotify_app/core/errors/exceptions.dart';
+import '../../../../core/consts/database_end_points.dart';
 import '../../../../core/errors/failure.dart';
 import '../../domain/entities/user_entity.dart';
 import '../../domain/repo/auth_repo.dart';
@@ -9,6 +11,7 @@ import '../models/models.dart';
 
 class AuthRepoImpl implements AuthRepo {
   FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore fireStore = FirebaseFirestore.instance;
 
   @override
   Future<Either<Failure, UserEntity>> signInWithEmailAndPassword(
@@ -20,7 +23,8 @@ class AuthRepoImpl implements AuthRepo {
       return right(user);
     } on FirebaseAuthException catch (exception) {
       log('FirebaseAuthException in createUserWithEmailAndPassword: ${exception.code} : Code is : ${exception.message}');
-      throw _handleFirebaseAuthException(exception);
+      CustomException customException = _handleFirebaseAuthException(exception);
+      return left(ServerFailure(customException.message));
     } catch (e) {
       log('Error on AuthRepoImpl signInWithEmailAndPassword: $e');
 
@@ -29,19 +33,25 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, UserEntity>> signUpWithEmailAndPassword(
-      {required String name,
-      required String email,
-      required String password}) async {
+  Future<Either<Failure, UserEntity>> signUpWithEmailAndPassword({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
     try {
       var credential = await auth.createUserWithEmailAndPassword(
           email: email, password: password);
 
       var user = UserModel.fromFirebaseUser(credential.user!);
+
+      await saveUserData(
+        user: UserEntity(email: email, name: name, userID: user.userID),
+      );
       return right(user);
     } on FirebaseAuthException catch (exception) {
       log('FirebaseAuthException in createUserWithEmailAndPassword: ${exception.code} : Code is : ${exception.message}');
-      throw _handleFirebaseAuthException(exception);
+      CustomException customException = _handleFirebaseAuthException(exception);
+      return left(ServerFailure(customException.message));
     } catch (e) {
       log('Error on AuthRepoImpl createUserWithEmailAndPassword: $e');
       return left(ServerFailure(e.toString()));
@@ -76,5 +86,12 @@ class AuthRepoImpl implements AuthRepo {
       default:
         return CustomException(message: 'An error occurred. Please try again.');
     }
+  }
+
+  @override
+  Future<void> saveUserData({required UserEntity user}) async {
+    fireStore.collection(userCollection).add(
+          UserEntity.toMap(user: user),
+        );
   }
 }
