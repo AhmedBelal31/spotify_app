@@ -7,7 +7,7 @@ class AppTextFormField extends StatefulWidget {
   final String hintText;
   final String? Function(String?)? validator;
   final void Function(String)? onFieldSubmitted;
-  final void Function()? suffixOnPressed;
+
   final bool? isThereASuffix;
   final TextEditingController? controller;
 
@@ -16,7 +16,6 @@ class AppTextFormField extends StatefulWidget {
     required this.hintText,
     this.validator,
     this.onFieldSubmitted,
-    this.suffixOnPressed,
     this.isThereASuffix = false,
     this.controller,
   });

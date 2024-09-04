@@ -22,7 +22,7 @@ class AuthRepoImpl implements AuthRepo {
       var user = UserModel.fromFirebaseUser(credential.user!);
       return right(user);
     } on FirebaseAuthException catch (exception) {
-      log('FirebaseAuthException in createUserWithEmailAndPassword: ${exception.code} : Code is : ${exception.message}');
+      log('FirebaseAuthException in SignInWithEmailAndPassword: ${exception.code} : Code is : ${exception.message}');
       CustomException customException = _handleFirebaseAuthException(exception);
       return left(ServerFailure(customException.message));
     } catch (e) {

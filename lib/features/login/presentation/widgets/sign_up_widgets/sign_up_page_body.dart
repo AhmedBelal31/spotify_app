@@ -4,7 +4,7 @@ import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/widgets/app_button.dart';
 import '../../../../../core/widgets/app_text_form_field.dart';
 import '../../../domain/entities/user_entity.dart';
-import '../../sign_up_cubit/sign_up_cubit.dart';
+import '../../cubit/sign_up_cubit/sign_up_cubit.dart';
 import '../or_divider.dart';
 import '../sign_in_with_social_media.dart';
 import 'already_have_account.dart';

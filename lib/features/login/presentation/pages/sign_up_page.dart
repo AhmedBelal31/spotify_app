@@ -1,67 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spotify_app/core/di/get_it.dart';
 import 'package:spotify_app/core/widgets/app_bar.dart';
-import 'package:spotify_app/core/widgets/app_button.dart';
-import '../../../../core/theme/app_text_styles.dart';
-import '../../../../core/widgets/app_text_form_field.dart';
-import '../widgets/sign_in_with_social_media.dart';
-import '../widgets/sign_up_widgets/already_have_account.dart';
-import '../widgets/sign_up_widgets/need_support.dart';
-import '../widgets/or_divider.dart';
+import '../../../../core/widgets/custom_progress_hud.dart';
+import '../cubit/sign_up_cubit/sign_up_cubit.dart';
+import '../cubit/sign_up_cubit/sign_up_states.dart';
+import '../widgets/sign_up_widgets/sign_up_page_body.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
 
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const BasicAppBar(withLogo: true),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 28),
-          child: Column(
-            children: [
-              const SizedBox(height: 47),
-              const Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'Register',
-                  style: TextStyles.font30Bold,
+      body: BlocProvider(
+        create: (context) => ServiceLocator.di.get<SignUpCubit>(),
+        child: BlocConsumer<SignUpCubit, SignUpStates>(
+          listener: (context, state) {
+            if (state is SignUpFailureState) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.message),
                 ),
-              ),
-              const SizedBox(height: 15),
-              const NeedSupport(),
-              const SizedBox(height: 26),
-              AppTextFormField(
-                hintText: 'Full Name ',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your name';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 16),
-              const AppTextFormField(
-                hintText: 'Enter Email',
-              ),
-              const SizedBox(height: 16),
-              const AppTextFormField(
-                hintText: 'Password ',
-                isThereASuffix: true,
-              ),
-              const SizedBox(height: 33),
-              AppButton(
-                onPressed: () {},
-                text: 'Create Account',
-              ),
-              const SizedBox(height: 33),
-              const OrDivider(),
-              const SizedBox(height: 44),
-              const SignInWithSocialMedia(),
-              const SizedBox(height: 30),
-              const AlreadyHaveAccount(),
-            ],
-          ),
+              );
+            }
+
+            if (state is SignUpSuccessState) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text("${state.userEntity.email} Signed up successfully"),
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            return CustomProgressHud(
+              isLoading: state is SignUpLoadingState,
+              child: const SignUpPageBody(),
+            );
+          },
         ),
       ),
     );
