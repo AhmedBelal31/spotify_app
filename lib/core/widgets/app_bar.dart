@@ -4,15 +4,13 @@ import 'package:spotify_app/core/extensions/is_dark_mode.dart';
 import 'package:spotify_app/core/theme/app_vectors.dart';
 import '../theme/app_text_styles.dart';
 
-class BasicAppBar extends StatelessWidget implements PreferredSizeWidget{
+class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool withLogo;
   final String text;
+  final Widget? trailing;
 
-  const BasicAppBar({
-    super.key,
-    this.withLogo = false,
-    this.text = '',
-  });
+  const BasicAppBar(
+      {super.key, this.withLogo = false, this.text = '', this.trailing});
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +45,10 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget{
               style: TextStyles.font16Bold,
             ),
       centerTitle: true,
+      actions: [
+        trailing ?? const SizedBox(),
+        const SizedBox(width: 40),
+      ],
     );
   }
 
