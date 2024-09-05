@@ -47,7 +47,7 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       actions: [
         trailing ?? const SizedBox(),
-        const SizedBox(width: 40),
+        const SizedBox(width: 10),
       ],
     );
   }
