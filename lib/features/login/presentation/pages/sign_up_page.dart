@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify_app/core/di/get_it.dart';
 import 'package:spotify_app/core/widgets/app_bar.dart';
+import '../../../../core/helpers/custom_snack_bar.dart';
 import '../../../../core/widgets/custom_progress_hud.dart';
+import '../cubit/sign_in_cubit/sign_in_state.dart';
 import '../cubit/sign_up_cubit/sign_up_cubit.dart';
 import '../cubit/sign_up_cubit/sign_up_states.dart';
 import '../widgets/sign_up_widgets/sign_up_page_body.dart';
@@ -24,19 +26,11 @@ class _SignUpPageState extends State<SignUpPage> {
         child: BlocConsumer<SignUpCubit, SignUpStates>(
           listener: (context, state) {
             if (state is SignUpFailureState) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(state.message),
-                ),
-              );
+              showFailureSnackBar(context, message: state.message);
             }
 
             if (state is SignUpSuccessState) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text("${state.userEntity.email} Signed up successfully"),
-                ),
-              );
+              showSuccessSnackBar(context, message: "Signed in successfully");
             }
           },
           builder: (context, state) {

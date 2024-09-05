@@ -90,6 +90,8 @@ class _SignUpPageBodyState extends State<SignUpPageBody> {
               AppButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
+                    FocusScope.of(context).unfocus();
+
                     UserEntity user = UserEntity(
                       name: _nameController.text,
                       email: _emailController.text,
