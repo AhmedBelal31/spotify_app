@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spotify_app/core/helpers/custom_snack_bar.dart';
+import 'package:spotify_app/const.dart';
+import 'package:spotify_app/core/widgets/custom_snack_bar.dart';
 import 'package:spotify_app/features/login/presentation/cubit/sign_in_cubit/sign_in_cubit.dart';
 import 'package:spotify_app/features/login/presentation/cubit/sign_in_cubit/sign_in_state.dart';
 import '../../../../core/di/get_it.dart';
+import '../../../../core/helpers/shared_pref.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/widgets/app_bar.dart';
 import '../widgets/sign_in_widgets/sign_in_page_body.dart';
-
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -30,6 +31,7 @@ class _SignInPageState extends State<SignInPage> {
             }
 
             if (state is SignInSuccessState) {
+              Prefs.setData(alreadySignIn, true);
               showSuccessSnackBar(context, message: "Signed in successfully");
               Navigator.pushReplacementNamed(context, Routes.homePage);
             }
