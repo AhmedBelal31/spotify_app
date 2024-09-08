@@ -29,14 +29,13 @@ class _ChooseModePageState extends State<ChooseModePage> {
               image: DecorationImage(
                 image: AssetImage(AppImages.chooseModeBG),
                 fit: BoxFit.fill,
-
               ),
             ),
             child: Column(
               children: [
                 SvgPicture.asset(AppVectors.appLogo),
                 const Spacer(),
-                const Text(
+                Text(
                   "Choose Mode",
                   style: TextStyles.font22Bold,
                   textAlign: TextAlign.center,
@@ -61,7 +60,7 @@ class _ChooseModePageState extends State<ChooseModePage> {
                                 isClicked: mode == ThemeMode.dark,
                               ),
                             ),
-                            const Text(
+                            Text(
                               'Dark Mode',
                               style: TextStyles.font17Medium,
                             ),
@@ -81,7 +80,7 @@ class _ChooseModePageState extends State<ChooseModePage> {
                                 isClicked: mode == ThemeMode.light,
                               ),
                             ),
-                            const Text(
+                            Text(
                               'Light Mode',
                               style: TextStyles.font17Medium,
                             ),
