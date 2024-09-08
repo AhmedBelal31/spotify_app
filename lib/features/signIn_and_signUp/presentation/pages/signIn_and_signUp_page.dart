@@ -44,8 +44,8 @@ class SignInAndSignUpPage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 55),
-                const Padding(
-                  padding: EdgeInsets.only(left: 34),
+                Padding(
+                  padding: const EdgeInsets.only(left: 34),
                   child: Text(
                     'Enjoy Listening To Music',
                     style: TextStyles.font26Bold,

@@ -43,7 +43,7 @@ class _SignUpPageBodyState extends State<SignUpPageBody> {
           child: Column(
             children: [
               const SizedBox(height: 47),
-              const Align(
+              Align(
                 alignment: Alignment.center,
                 child: Text(
                   'Register',

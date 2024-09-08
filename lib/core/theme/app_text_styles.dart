@@ -1,92 +1,91 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class TextStyles {
-
-  static const TextStyle font30Bold = TextStyle(
+  static TextStyle font30Bold = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: 30,
+    fontSize: 30.sp,
   );
 
-  static const TextStyle font26Bold = TextStyle(
+  static TextStyle font26Bold = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: 26,
+    fontSize: 26.sp,
   );
 
-  static const TextStyle font22Bold = TextStyle(
+  static TextStyle font22Bold = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: 22,
+    fontSize: 22.sp,
     color: Colors.white,
   );
 
-  static const TextStyle font20Bold = TextStyle(
+  static TextStyle font20Bold = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: 20,
+    fontSize: 20.sp,
     color: Colors.black,
   );
 
-  static const TextStyle font20Medium = TextStyle(
+  static TextStyle font20Medium = TextStyle(
     fontWeight: FontWeight.w500, // Medium weight
-    fontSize: 20,
+    fontSize: 20.sp,
   );
 
-  static const TextStyle font19Medium = TextStyle(
+  static TextStyle font19Medium = TextStyle(
     fontWeight: FontWeight.w500, // Medium weight
-    fontSize: 19,
+    fontSize: 19.sp,
     // color: AppColors.darkGreyColor
   );
 
-  static const TextStyle font17Regular = TextStyle(
+  static TextStyle font17Regular = TextStyle(
     fontWeight: FontWeight.normal,
-    fontSize: 17,
+    fontSize: 17.sp,
   );
 
-  static const TextStyle font17Medium = TextStyle(
-    fontWeight: FontWeight.w500, // Medium weight
-    fontSize: 17,
-    color: Colors.white
-  );
+  static TextStyle font17Medium = TextStyle(
+      fontWeight: FontWeight.w500, // Medium weight
+      fontSize: 17.sp,
+      color: Colors.white);
 
-  static const TextStyle font16Bold = TextStyle(
+  static TextStyle font16Bold = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: 16,
+    fontSize: 16.sp,
     color: Colors.black,
   );
 
-  static const TextStyle font16Medium = TextStyle(
+  static TextStyle font16Medium = TextStyle(
     fontWeight: FontWeight.w500, // Medium weight
-    fontSize: 16,
+    fontSize: 16.sp,
     color: Colors.black,
   );
 
-  static const TextStyle font15Bold = TextStyle(
+  static TextStyle font15Bold = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: 15,
+    fontSize: 15.sp,
   );
 
-  static const TextStyle font15Regular = TextStyle(
+  static TextStyle font15Regular = TextStyle(
     fontWeight: FontWeight.normal,
-    fontSize: 15,
+    fontSize: 15.sp,
     color: Colors.black,
   );
 
-  static const TextStyle font14Regular = TextStyle(
+  static TextStyle font14Regular = TextStyle(
     fontWeight: FontWeight.normal,
-    fontSize: 14,
+    fontSize: 14.sp,
   );
 
-  static const TextStyle font13Bold = TextStyle(
+  static TextStyle font13Bold = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: 13,
+    fontSize: 13.sp,
   );
 
-  static const TextStyle font12Regular = TextStyle(
+  static TextStyle font12Regular = TextStyle(
     fontWeight: FontWeight.normal,
-    fontSize: 12,
+    fontSize: 12.sp,
     color: Colors.black,
   );
 
-  static const TextStyle font12Medium = TextStyle(
+  static TextStyle font12Medium = TextStyle(
     fontWeight: FontWeight.w500, // Medium weight
-    fontSize: 12,
+    fontSize: 12.sp,
   );
 }

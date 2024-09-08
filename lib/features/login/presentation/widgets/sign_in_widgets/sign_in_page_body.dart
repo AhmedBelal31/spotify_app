@@ -40,7 +40,7 @@ class _SignInPageBodyState extends State<SignInPageBody> {
           child: Column(
             children: [
               const SizedBox(height: 47),
-              const Align(
+               Align(
                 alignment: Alignment.center,
                 child: Text(
                   'Sign In',
