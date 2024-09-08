@@ -3,7 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify_app/core/theme/app_colors.dart';
 import 'package:spotify_app/core/theme/app_images.dart';
 import 'package:spotify_app/core/theme/app_vectors.dart';
-
+import '../../../../const.dart';
+import '../../../../core/helpers/shared_pref.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../../../../core/widgets/app_button.dart';
@@ -28,7 +29,7 @@ class GetStartedPage extends StatelessWidget {
               children: [
                 SvgPicture.asset(AppVectors.appLogo),
                 const Spacer(),
-                const Text('Enjoy Listening to Music', style: TextStyles.font22Bold),
+                Text('Enjoy Listening to Music', style: TextStyles.font22Bold),
                 const SizedBox(height: 21),
                 Text(
                   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
@@ -38,7 +39,8 @@ class GetStartedPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 37),
                 AppButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    Prefs.setData(firstTime, false);
                     Navigator.of(context).pushNamed(Routes.chooseModePage);
                   },
                   text: 'Get Started',
