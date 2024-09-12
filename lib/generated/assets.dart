@@ -9,7 +9,17 @@ class Assets {
   static const String fontsSatoshiRegular = 'assets/fonts/Satoshi-Regular.ttf';
   static const String imagesChooseModeBg = 'assets/images/choose_mode_bg.png';
   static const String imagesGetStartedBg = 'assets/images/get_started_bg.png';
+  static const String imagesHomePageArtist = 'assets/images/home_page_artist.png';
+  static const String imagesSignInAndSignUpCharacter = 'assets/images/signIn_and_signUp_character.png';
   static const String svgsAppLogo = 'assets/svgs/app_logo.svg';
+  static const String svgsAppleIcon = 'assets/svgs/apple_icon.svg';
+  static const String svgsBackArrow = 'assets/svgs/back_arrow.svg';
+  static const String svgsGoogleIcon = 'assets/svgs/google_icon.svg';
+  static const String svgsHideIcon = 'assets/svgs/hide_icon.svg';
+  static const String svgsMoon = 'assets/svgs/moon.svg';
+  static const String svgsSearchIcon = 'assets/svgs/search_icon.svg';
+  static const String svgsSignInAndSignUpBottomPattern = 'assets/svgs/signIn_and_signUp_bottom_pattern.svg';
+  static const String svgsSignInAndSignUpTopPattern = 'assets/svgs/signIn_and_signUp_top_pattern.svg';
   static const String svgsSun = 'assets/svgs/sun.svg';
 
 }

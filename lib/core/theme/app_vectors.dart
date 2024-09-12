@@ -10,4 +10,7 @@ class AppVectors {
   static String hideIcon = "${basePath}hide_icon.svg";
   static String appleIcon = "${basePath}apple_icon.svg";
   static String googleIcon = "${basePath}google_icon.svg";
+  static String searchIcon = "${basePath}search_icon.svg";
+  static String homeTopPattern = "${basePath}home_top_pattern.svg";
+
 }
