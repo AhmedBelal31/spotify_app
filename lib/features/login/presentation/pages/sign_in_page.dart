@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify_app/const.dart';
+import 'package:spotify_app/core/widgets/custom_progress_hud.dart';
 import 'package:spotify_app/core/widgets/custom_snack_bar.dart';
 import 'package:spotify_app/features/login/presentation/cubit/sign_in_cubit/sign_in_cubit.dart';
 import 'package:spotify_app/features/login/presentation/cubit/sign_in_cubit/sign_in_state.dart';
@@ -37,7 +38,10 @@ class _SignInPageState extends State<SignInPage> {
             }
           },
           builder: (context, state) {
-            return const SignInPageBody();
+            return CustomProgressHud(
+              isLoading: state is SignInLoadingState,
+              child: const SignInPageBody(),
+            );
           },
         ),
       ),
